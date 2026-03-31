@@ -58,7 +58,7 @@ canvas.pack(fill="both", expand=True)
 
 # generate button
 button = tk.Button(root, text="GENERATE CAT",font=("Arial", 16), command=show_cat, bg="blue")
-canvas.create_window(350, 100, window=button)
+canvas.create_window(350, 30, window=button)
 
 # output
 cat_label = tk.Label(root)
