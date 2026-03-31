@@ -15,14 +15,17 @@ def get_cat():
             print("Ошибка при запросе JSON")
             return None
         data = response.json()
-        print("Полный URL картинки:", data['url'])
+        cat_url = data['url']
+        if not cat_url.startswith(('http://', 'https://')):
+            cat_url = 'https://cataas.com' + cat_url
+        print("Полный URL картинки:", cat_url)
     except Exception as e:
         print("Ошибка получения URL:", e)
         return None
 
     try:
         headers = {'User-Agent': 'Mozilla/5.0'}
-        img_resp = requests.get(data['url'], headers=headers, timeout=10)
+        img_resp = requests.get(cat_url, headers=headers, timeout=10)
         print("Статус загрузки картинки:", img_resp.status_code)
         if img_resp.status_code != 200:
             print("Не удалось загрузить картинку")
