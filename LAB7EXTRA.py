@@ -39,10 +39,10 @@ def get_cat():
 def show_cat():
     photo = get_cat()
     if photo:
-        label.config(image=photo)
-        label.image = photo
+        cat_label.config(image=photo)
+        cat_label.image = photo
     else:
-        label.config(text="Не удалось загрузить кота", image="")
+        cat_label.config(text="Не удалось загрузить кота", image="")
 
 # wndw
 root = tk.Tk()
@@ -60,9 +60,5 @@ canvas.create_window(350, 100, window=button)
 # output
 cat_label = tk.Label(root)
 canvas.create_window(350, 180, window=cat_label)
-
-
-label = tk.Label(root)
-label.pack(pady=10, expand=True)
 
 root.mainloop()
